@@ -51,3 +51,11 @@ The experimental data utilized in this project is based on the following researc
 1.  Ensure MATLAB is installed with the Statistics and Machine Learning Toolbox.
 2.  Run `Parameter_estimation.m` to identify the probabilistic baseline of your dataset.
 3.  Use `MLmodelBuilding.m` to execute the classification pipeline.
+
+## 📖 Citation & Research
+
+If you find this code or the associated methodology useful for your research, please cite my work. You can find my full list of publications on **Google Scholar**:
+
+👉 [**Deepan Jayaraman - Google Scholar Profile**](https://scholar.google.com/citations?user=270_P4EAAAAJ&hl=en)
+
+Your citations help support the continued development of open-source engineering tools.
