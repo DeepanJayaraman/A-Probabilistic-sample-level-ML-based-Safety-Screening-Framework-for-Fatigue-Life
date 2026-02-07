@@ -1,14 +1,10 @@
 clear;
 clc
 rng(42);
-Folder ="C:\Users\jayard4\OneDrive - Caterpillar\Research\Probabilistic SN\UQ-main\results\";%2 Extreme\
+Folder =Folder Name; 
 addpath(Folder)
-CaseNames = [ "Nf_1_371GPa"]; %[ 'Nf_1.633 GPa', 'Nf_1.552 GPa', 'Nf_1.452 GPa', 'Nf_1_371GPa'...
-% 'Nf_0.980 GPa', 'Nf_0.949 GPa', 'Nf_0.928 GPa' ];
+CaseNames = [ CaseNmae];
 
-% CaseNames = { ...
-%     "Nf_635GPa", "Nf_589GPa", "Nf_536GPa", "Nf_497GPa",...
-%     "Nf_451GPa"};
 
 % Color-blind-safe palette
 colBlue = [0 114 178] / 255;
