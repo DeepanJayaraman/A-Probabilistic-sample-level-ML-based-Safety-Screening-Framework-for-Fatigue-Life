@@ -3,19 +3,14 @@ clear
 close all
 rng(42);  % Sets the seed for random number generation
 
-%% [0_8] Laminate Data
-Nf_1_633GPa = [2100, 3000, 4200, 6000];            % σ ≈ 1.633 GPa (0.81)
-Nf_1_552GPa = [4200, 15000, 30000, 55000];         % σ ≈ 1.552 GPa (0.77)
-Nf_1_452GPa = [60000, 100000, 160000, 240000];     % σ ≈ 1.452 GPa (0.72)
-Nf_1_371GPa = [300000, 450000, 700000, 1000000];   % σ ≈ 1.371 GPa (0.68)
-%% [0_2/90_2]_s Laminate Data
-Nf_0_980GPa = [220, 310, 450, 800];                % σ ≈ 0.980 GPa (0.95)
-Nf_0_949GPa = [1000, 1800, 3200, 4500];            % σ ≈ 0.949 GPa (0.92)
-Nf_0_928GPa = [12000, 25000, 45000, 95000];        % σ ≈ 0.928 GPa (0.90)
+Add the data here as List
 
 %% Analysis setup
-Cases = {Nf_1_633GPa, Nf_1_552GPa, Nf_1_452GPa, Nf_1_371GPa, Nf_0_980GPa, Nf_0_949GPa, Nf_0_928GPa};
-CaseNames = {'Nf_1.633 GPa','Nf_1.552 GPa','Nf_1.452 GPa','Nf_1_371GPa','Nf_0.980 GPa','Nf_0.949 GPa','Nf_0.928 GPa'};
+Cases = {Case};
+CaseNames = {Case Name as string};
+
+
+
 N_list = [5,7,9,11];   % sample sizes per experiment
 
 % Consolidated dataset table
@@ -109,7 +104,7 @@ for k = 1:numel(Cases)
 end
 
 % Save consolidated dataset
-outAll = "C:\Users\jayard4\OneDrive - Caterpillar\Research\Probabilistic SN\UQ-main\results\AllCases_T3T4_CmomFailure_RATIO_ONLY.mat";
+outAll = FileName;
 save(outAll, 'Dataset', '-v7.3');
 
 % Quick peek
