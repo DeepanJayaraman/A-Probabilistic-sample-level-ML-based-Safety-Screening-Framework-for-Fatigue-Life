@@ -1,8 +1,8 @@
 clear;
-% Cases = {Nf_1_633GPa, Nf_1_552GPa, Nf_1_452GPa, Nf_1_371GPa, Nf_0_980GPa, Nf_0_949GPa, Nf_0_928GPa};
-CasesNN = {"Nf_1_371GPa"};
+% Cases = Data;
+CasesNN = {"CaseName"};
 % N_list = [5,7,9,11];
-Folder = "C:\Users\jayard4\OneDrive - Caterpillar\Research\Probabilistic SN\UQ-main\results\";
+Folder = Folder Name;
 rng(5)
 
 for j  = 1:length(CasesNN)
