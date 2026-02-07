@@ -1,49 +1,53 @@
-Probabilistic Fatigue Life Assessment & Machine Learning Pipeline
-This repository provides a MATLAB-based framework for generating Probabilistic S-N (PSN) curves, performing parameter estimation via L-moments, and building Machine Learning classifiers for fatigue life prediction in composite materials.
+# Probabilistic Fatigue Life Assessment using L-Moments and ML
 
-🛠️ Project Architecture
-The project is organized into four distinct functional modules:
+This repository contains a MATLAB-based framework for generating Probabilistic S-N (PSN) curves and utilizing Machine Learning for fatigue life classification. The project integrates statistical parameter estimation with predictive modeling for composite materials.
 
-1. PSN Generation & Statistical Analysis
-This module handles the core probabilistic modeling, focusing on distribution identification and parameter estimation.
+---
 
-Identify_dist.m: Analyzes data to determine the best-fit statistical distribution.
+## 🛠️ Project Modules
 
-Parameter_estimation.m & parameter_identify.m: Estimating distribution parameters (e.g., Weibull or Lognormal).
+### 1. PSN Generation & Statistical Analysis
+Used for core probabilistic modeling and distribution fitting.
+* `Identify_dist.m`: Statistical identification of the best-fit distribution.
+* `Parameter_estimation.m` & `parameter_identify.m`: Estimating parameters for life distribution.
+* `lmom.m`: Implementation of **L-Moments** for robust parameter estimation.
+* `lhsgeneral.m`: Latin Hypercube Sampling for stochastic data generation.
+* `LegendreShiftPoly.m`: Shifted Legendre Polynomials for surrogate modeling.
 
-lmom.m: Implements L-moments for robust parameter estimation, which is often more stable than maximum likelihood for small datasets.
+### 2. Classifier Performance & Model Building
+* `MLmodelBuilding.m`: Core script for training and evaluating the ML classification models.
 
-lhsgeneral.m: Performs Latin Hypercube Sampling (LHS) for efficient probabilistic sampling.
+### 3. Data Management (Synthetic & Features)
+* `Datasetgeneration.m`: Script for generating **Synthetic Datasets**.
+* `MLdata.m`: Handles **Feature Selection** and preparation of ML-ready data structures.
 
-LegendreShiftPoly.m: Utilizes Shifted Legendre Polynomials for surrogate modeling or expansion.
+### 4. Plotting & Visualization
+* `Boxplot.m`: Specialized plotting script to visualize data distribution and fatigue scatter.
 
-2. Dataset Management
-Datasetgeneration.m: Generates synthetic datasets to augment experimental data or test model sensitivity.
+---
 
-MLData.m: Handles feature selection and prepares raw data into a format suitable for training ML models.
+## 🔬 Methodology
 
-3. Machine Learning & Classification
-MLmodelBuilding.m: The primary script for training, validating, and testing ML classifiers to predict fatigue performance or failure modes.
+The workflow follows a rigorous engineering approach to handle uncertainty in material fatigue:
+1.  **Stochastic Modeling:** Distribution parameters are identified using L-moments to handle small sample sizes effectively.
+2.  **Synthetic Augmentation:** Where experimental data is sparse, `Datasetgeneration.m` expands the feature space.
+3.  **Classification:** ML models are trained to classify fatigue performance based on the processed features.
 
-4. Visualization
-Boxplot.m & BoxPlotting.m: Specialized scripts for generating boxplots to visualize data spread, outliers, and the uncertainty in fatigue life predictions.
 
-📊 Methodology
-The pipeline follows a standard probabilistic engineering workflow:
 
-Data Acquisition: Experimental data is sourced from literature (see References).
+---
 
-Stochastic Modeling: Distribution parameters are estimated using L-moments (lmom.m) to account for the inherent scatter in fatigue data.
+## 📚 References & Data Sources
 
-Feature Engineering: Relevant features are selected and pre-processed via MLData.m.
+The experimental data utilized in this project is based on the following research:
 
-Model Training: A classifier is built to predict fatigue life categories or reliability levels.
+1.  **Kang, K.W., Lim, D.M., Kim, J.K. (2008).** "Probabilistic analysis for the fatigue life of carbon/epoxy laminates." *Composite Structures*, 85(3), 258–264.
+2.  **Li, D., Hu, D., Wang, R., Ma, Q., Liu, H. (2018).** "A non-local approach for probabilistic assessment of lcf life based on optimized effective-damage-parameter." *Engineering Fracture Mechanics*, 199, 188–200.
 
-Validation: Performance is evaluated against synthetic samples generated through Latin Hypercube Sampling.
+---
 
-📚 References & Data Sources
-The experimental datasets used to validate these models are derived from the following landmark studies in composite fatigue:
+## 🚀 Getting Started
 
-Carbon/Epoxy Laminates: Kang, K.W., Lim, D.M., Kim, J.K. "Probabilistic analysis for the fatigue life of carbon/epoxy laminates." Composite Structures 85.3 (2008): 258-264.
-
-LCF Life Assessment: Li, D., Hu, D., Wang, R., Ma, Q., Liu, H. "A non-local approach for probabilistic assessment of lcf life based on optimized effective-damage-parameter." Engineering Fracture Mechanics 199 (2018): 188-200.
+1.  Ensure MATLAB is installed with the Statistics and Machine Learning Toolbox.
+2.  Run `Parameter_estimation.m` to identify the probabilistic baseline of your dataset.
+3.  Use `MLmodelBuilding.m` to execute the classification pipeline.
